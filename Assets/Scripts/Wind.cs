@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Wind : MonoBehaviour
 {
-    public float speed = 2.0f;
+    float speed;
+    TextUI text;
     public Rigidbody rb;
     void Start()
     {
+        text = GameObject.Find("WindSpeed").GetComponent<TextUI>();
+        speed = text.speed;
         rb = GetComponent<Rigidbody>();
     }
 
