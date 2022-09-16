@@ -5,17 +5,22 @@ using UnityEngine;
 
 public class TextUI : MonoBehaviour
 {
-    public float speed;
+    public float speedLR;
+    public float speedUD;
     private Text WindSpeed;
+    float result;
     void Start()
     {
-        speed = Random.Range(0.1f, 4.0f);
+        speedLR = Random.Range(-2.0f, 2.0f);
+        speedUD = Random.Range(-2.0f, 2.0f);
+        result = Mathf.Round(speedLR + speedUD);
         WindSpeed =GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        WindSpeed.text = "Wind Speed is: " + speed.ToString();
+
+        WindSpeed.text = "Wind Speed is: " + result.ToString();
     }
 }
