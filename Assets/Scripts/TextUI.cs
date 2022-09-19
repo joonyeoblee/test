@@ -9,11 +9,15 @@ public class TextUI : MonoBehaviour
     public float speedUD;
     private Text WindSpeed;
     float result;
+
+    public float angle;
     void Start()
     {
         speedLR = Random.Range(-2.0f, 2.0f);
         speedUD = Random.Range(-2.0f, 2.0f);
         result = Mathf.Round(speedLR + speedUD);
+        angle = Mathf.Atan2(speedLR, speedUD) * Mathf.Rad2Deg;
+
         WindSpeed =GetComponent<Text>();
     }
 
