@@ -8,15 +8,22 @@ public class NewBehaviourScript : MonoBehaviour
 
     TextUI TextUI;
     float angle;
+
+    Rigidbody rb;
+    float X;
+    float Y;
     void Start()
     {
-        angle = TextUI.angle;
-        transform.rotation = Quaternion.AngleAxis(angle,Vector3.up);
+        TextUI = GameObject.Find("WindSpeed").GetComponent<TextUI>();
+        X = TextUI.speedLR;
+        Y = TextUI.speedUD;
+        Debug.Log(X + Y);
+        transform.rotation = Quaternion.Euler(X,Y,0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+    
     }
 }

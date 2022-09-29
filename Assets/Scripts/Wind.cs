@@ -6,6 +6,8 @@ public class Wind : MonoBehaviour
 {
     float speedLR;
     float speedUD;
+
+   
     TextUI text;
     public Rigidbody rb;
     void Start()
@@ -21,5 +23,7 @@ public class Wind : MonoBehaviour
     {
         rb.AddForce(Vector3.left * speedLR);
         rb.AddForce(Vector3.up * speedUD);
+        
+        
     }
 }
