@@ -34,10 +34,12 @@ namespace BNG {
         AudioSource audioSource;
         Rigidbody rigid;
 
+        public bool buttonDown;
+       
         void Start() {
             joint = GetComponent<SpringJoint>();
             rigid = GetComponent<Rigidbody>();
-
+            buttonDown = false;
             // Set to kinematic so we are not affected by outside forces
             if(!AllowPhysicsForces) {
                 rigid.isKinematic = true;
@@ -133,6 +135,7 @@ namespace BNG {
             if (audioSource && ButtonClick) {
                 audioSource.clip = ButtonClick;
                 audioSource.Play();
+                buttonDown = true;
             }
 
             // Call event

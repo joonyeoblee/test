@@ -6,23 +6,22 @@ using UnityEngine;
 public class Score : MonoBehaviour
 {
     // Start is called before the first frame update
-    YellowScore newYellowScore;
-    public GameObject Center;
+    private GameObject Center;
     private Text myText;
     void Start()
     {
-        newYellowScore = Center.GetComponent<YellowScore>();
         myText = GetComponent<Text>();
+        Center = GameObject.Find("Target");
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if(newYellowScore.know == 1){
-            myText.text = "10";
+    private void OnCollisionEnter(Collision other) {
+        if(other.gameObject.tag == "Target"){
+            Vector3 p1 = transform.position;
+            Vector3 p2 = this.Center.transform.position;
+            Debug.Log(p1 - p2);
+            Debug.Log(Vector3.Distance(p1,p2));
         }
-        else{
-            myText.text = "0";
-        }
+
     }
 }

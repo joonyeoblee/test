@@ -18,13 +18,13 @@ public class NewBehaviourScript : MonoBehaviour
         X = TextUI.speedLR;
         Y = TextUI.speedUD;
         Debug.Log(X + Y);
-        transform.rotation = Quaternion.Euler(X,Y,0);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-    
+    transform.Rotate(0,0,X+Y);
     }
 }
 /*using System.Collections;
