@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using BNG;
 using TMPro;
+using System;
+
 public class TargetController : MonoBehaviour
 {
     private float timer;
@@ -38,7 +40,7 @@ public class TargetController : MonoBehaviour
 
     private void Start()
     {
-        //buttonController = GetComponent<ButtonController>();
+        RaycastWeapon.OnPistolFired += RaycastWeapon_OnPistolFired;
     }
 
     // Update is called once per frame
@@ -85,7 +87,7 @@ public class TargetController : MonoBehaviour
     public void RamdomlyUpTarget()
     {
         isNextTarget = false;
-        int i = Random.Range(0, 9);
+        int i = UnityEngine.Random.Range(0, 9);
         targets[i].SetUp();
         
     }
@@ -118,6 +120,11 @@ public class TargetController : MonoBehaviour
      public void ScorePlus()
     {
        score++;
+    }
+
+    public void RaycastWeapon_OnPistolFired(object sender, EventArgs e)
+    {
+        useBullet++;
     }
 
 }
