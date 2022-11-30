@@ -6,85 +6,96 @@ using BNG;
 public class TargetController : MonoBehaviour
 {
     private float timer;
-    private float downTimer;
-    public float downTime = 10f;
-    public float uptime = 10f;
-    public bool isHit;
-    public bool isUp;
-    public bool gameStart = false;
-    public bool myturn = false;
-    private Animator anim;
-    public GameObject button;
-    GameObject buttonMain;
-    Button buttonController;
-    buttonController buttonMaincontroller;
+
+    public static TargetController Instance { get; private set; }
+
+    public Target[] targets;
+
+    public float downTime;
+
+    public bool isNextTarget;
+
+    public int targetLeft;
+
+    public ButtonController buttonController;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        anim = GetComponent<Animator>();
-        buttonMain = GameObject.Find("Button");
-        buttonController = button.GetComponent<Button>();
-        buttonMaincontroller = buttonMain.GetComponent<buttonController>();
+        if (Instance == null)
+        {
+            Instance = this;
+        } else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        //buttonController = GetComponent<ButtonController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //게임시작전 2초뒤 자동올라옴
-        if (isHit && !gameStart)
+        if (isNextTarget)
         {
             timer += Time.deltaTime;
-            if (timer >= 2f)
-            {
-                timer = 0;
-                SetUp();
-            }
-        }
-        
-        if(isHit && gameStart){
-            timer += Time.deltaTime;
-            if (timer >= downTime)
-            {
-                timer = 0;
-                buttonMaincontroller.TargetUp();
-                isHit = false;
-            }
         }
 
-        if(isUp && gameStart){
-            downTimer += Time.deltaTime;
-             if (downTimer >= downTime)
-            {
-                downTimer = 0;
-                SetDown();
-            }
-        }
-    }
-    //총맞을때
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "Arrow")
+        if (timer > 2f)
         {
-            SetIsHit();
+            TryUpTarget();
+            timer = 0;
         }
     }
-    //내려가는
-    public void SetIsHit()
+
+    public void StartGame(float downTime)
     {
-        Debug.Log("Hit");
-        isHit = true;
-        isUp = false;
-        anim.SetBool("isHit", isHit);
+        targetLeft = 10;
+
+        isNextTarget = true;
+        foreach (Target t in targets)
+        {
+            t.downTime = downTime;
+        }
+        PutDownAllTarget();
     }
-    //올라오는
-    public void SetUp(){
-        isHit = false;
-        isUp = true;
-        anim.SetBool("isHit", isHit);
+
+    private void TryUpTarget()
+    {
+        if(targetLeft > 0)
+        {
+            targetLeft--;
+            RamdomlyUpTarget();
+        }
+        else
+        {
+            StopGame();
+        }
     }
-    public void SetDown(){
-        isUp = false;
-        anim.SetBool("isHit", true);
+
+    //9개 타겟 중 하나 무작위로 올려줌
+    public void RamdomlyUpTarget()
+    {
+        isNextTarget = false;
+        int i = Random.Range(0, 9);
+        targets[i].SetUp();
+        
     }
+
+    public void StopGame()
+    {
+        buttonController.StopGame();
+    }
+
+    public void PutDownAllTarget()
+    {
+        foreach(Target t in targets)
+        {
+            t.SetDown();
+        }
+    }
+
 }
