@@ -497,15 +497,15 @@ MonoBehaviour:
   onButtonDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1274960797}
+      - m_Target: {fileID: 2294232361789247008}
         m_TargetAssemblyTypeName: buttonController, Assembly-CSharp
-        m_MethodName: WhenButtonDown
-        m_Mode: 1
+        m_MethodName: pushedButton
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 4
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -739,7 +739,6 @@ GameObject:
   - component: {fileID: 281453453}
   - component: {fileID: 281453452}
   - component: {fileID: 281453451}
-  - component: {fileID: 281453450}
   m_Layer: 0
   m_Name: Normal
   m_TagString: Untagged
@@ -747,32 +746,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &281453450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281453449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9304a1bbb3b0e48ae290e86875e49b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targets:
-  - {fileID: 100410522}
-  - {fileID: 1984702508}
-  - {fileID: 1543192536}
-  - {fileID: 525591794}
-  - {fileID: 2039087340}
-  - {fileID: 212539978}
-  - {fileID: 1010025521}
-  - {fileID: 1711792585}
-  - {fileID: 1736806408}
-  useTargets: {fileID: 0}
-  gameStart: 0
-  stop: 0
-  firstTarget: 0
 --- !u!65 &281453451
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1397,15 +1370,15 @@ MonoBehaviour:
   onButtonDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1959861837}
+      - m_Target: {fileID: 2294232361789247008}
         m_TargetAssemblyTypeName: buttonController, Assembly-CSharp
-        m_MethodName: WhenButtonDown
-        m_Mode: 1
+        m_MethodName: pushedButton
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -2106,7 +2079,6 @@ GameObject:
   - component: {fileID: 1274960800}
   - component: {fileID: 1274960799}
   - component: {fileID: 1274960798}
-  - component: {fileID: 1274960797}
   m_Layer: 0
   m_Name: Easy
   m_TagString: Untagged
@@ -2114,32 +2086,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1274960797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274960796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9304a1bbb3b0e48ae290e86875e49b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targets:
-  - {fileID: 100410522}
-  - {fileID: 1984702508}
-  - {fileID: 1543192536}
-  - {fileID: 525591794}
-  - {fileID: 2039087340}
-  - {fileID: 212539978}
-  - {fileID: 1010025521}
-  - {fileID: 1711792585}
-  - {fileID: 1736806408}
-  useTargets: {fileID: 0}
-  gameStart: 0
-  stop: 0
-  firstTarget: 0
 --- !u!65 &1274960798
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2781,15 +2727,15 @@ MonoBehaviour:
   onButtonDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 281453450}
+      - m_Target: {fileID: 2294232361789247008}
         m_TargetAssemblyTypeName: buttonController, Assembly-CSharp
-        m_MethodName: WhenButtonDown
-        m_Mode: 1
+        m_MethodName: pushedButton
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 2
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -3874,7 +3820,6 @@ GameObject:
   - component: {fileID: 1959861840}
   - component: {fileID: 1959861839}
   - component: {fileID: 1959861838}
-  - component: {fileID: 1959861837}
   m_Layer: 0
   m_Name: Hard
   m_TagString: Untagged
@@ -3882,32 +3827,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1959861837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959861836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9304a1bbb3b0e48ae290e86875e49b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targets:
-  - {fileID: 100410522}
-  - {fileID: 1984702508}
-  - {fileID: 1543192536}
-  - {fileID: 525591794}
-  - {fileID: 2039087340}
-  - {fileID: 212539978}
-  - {fileID: 1010025521}
-  - {fileID: 1711792585}
-  - {fileID: 1736806408}
-  useTargets: {fileID: 0}
-  gameStart: 0
-  stop: 0
-  firstTarget: 0
 --- !u!65 &1959861838
 BoxCollider:
   m_ObjectHideFlags: 0

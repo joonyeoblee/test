@@ -6,8 +6,11 @@ using BNG;
 public class TargetController : MonoBehaviour
 {
     private float timer;
+    private float downTimer;
+    public float downTime = 10f;
     public float uptime = 10f;
     public bool isHit;
+    public bool isUp;
     public bool gameStart = false;
     public bool myturn = false;
     private Animator anim;
@@ -35,16 +38,26 @@ public class TargetController : MonoBehaviour
             if (timer >= 2f)
             {
                 timer = 0;
-                setUp();
+                SetUp();
             }
         }
+        
         if(isHit && gameStart){
             timer += Time.deltaTime;
-            if (timer >= 2f)
+            if (timer >= downTime)
             {
                 timer = 0;
                 buttonMaincontroller.TargetUp();
                 isHit = false;
+            }
+        }
+
+        if(isUp && gameStart){
+            downTimer += Time.deltaTime;
+             if (downTimer >= downTime)
+            {
+                downTimer = 0;
+                SetDown();
             }
         }
     }
@@ -61,14 +74,17 @@ public class TargetController : MonoBehaviour
     {
         Debug.Log("Hit");
         isHit = true;
+        isUp = false;
         anim.SetBool("isHit", isHit);
     }
     //올라오는
-    public void setUp(){
+    public void SetUp(){
         isHit = false;
+        isUp = true;
         anim.SetBool("isHit", isHit);
     }
-    public void setDown(){
+    public void SetDown(){
+        isUp = false;
         anim.SetBool("isHit", true);
     }
 }

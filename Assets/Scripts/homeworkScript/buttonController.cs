@@ -30,10 +30,11 @@ public class buttonController : MonoBehaviour
             }
         }
     }
+    //타켓이 내려가는 함수
     public void TargetUp()
     {
         int i = Random.Range(0, 8);
-        targets[i].setUp();
+        targets[i].SetUp();
         gameStart = true;
     }
     //버튼이 눌렸을때 실행할 함수
@@ -42,9 +43,17 @@ public class buttonController : MonoBehaviour
         foreach (TargetController k in targets)
         {
             //알아서올라오는 메소드
-            k.setDown();
+            k.SetDown();
             k.gameStart = true;
         }
         firstTarget = true;
+    }
+
+    public void pushedButton(float downTime){
+        foreach (TargetController k in targets)
+        {
+            //난이도 조절
+            k.downTime = downTime;
+        }
     }
 }
