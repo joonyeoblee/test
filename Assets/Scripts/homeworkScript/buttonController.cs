@@ -29,6 +29,7 @@ public class ButtonController : MonoBehaviour
     public void StopGame()
     {
         isGameStart = false;
+        
     }
 
     //난이도 버튼 누르면 호출하는 함수

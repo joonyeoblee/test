@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BNG;
-
+using TMPro;
 public class TargetController : MonoBehaviour
 {
     private float timer;
-
+    
+    public TextMeshPro hitText;
+    public TextMeshPro missText;
+    public TextMeshPro bulletText;
     public static TargetController Instance { get; private set; }
 
     public Target[] targets;
@@ -16,6 +19,8 @@ public class TargetController : MonoBehaviour
     public bool isNextTarget;
 
     public int targetLeft;
+    public int score = 0;
+    public int useBullet = 0;
 
     public ButtonController buttonController;
 
@@ -88,6 +93,12 @@ public class TargetController : MonoBehaviour
     public void StopGame()
     {
         buttonController.StopGame();
+        //게임끝나면 전부 올리기
+        PutUpAllTarget();
+        //결과 띄우기
+        hitText.text = "Hit score\n" + score.ToString(); 
+        missText.text = "Miss score\n" + (10 - score).ToString(); 
+        hitText.text = "Using bullet\n" + useBullet; 
     }
 
     public void PutDownAllTarget()
@@ -96,6 +107,17 @@ public class TargetController : MonoBehaviour
         {
             t.SetDown();
         }
+    }
+    public void PutUpAllTarget()
+    {
+        foreach(Target t in targets)
+        {
+            t.SetUp();
+        }
+    }
+     public void ScorePlus()
+    {
+       score++;
     }
 
 }

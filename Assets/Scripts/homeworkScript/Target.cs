@@ -19,7 +19,7 @@ public class Target : MonoBehaviour
 
     void Update()
     {
-        //¿Ã¶ó¿ÍÀÖÀ¸¸é Æ¯Á¤ ÃÊ µÚ¿¡ ³»·Á°¨
+        //ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½ ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (isUpped)
         {
             timer += Time.deltaTime;
@@ -30,7 +30,7 @@ public class Target : MonoBehaviour
             }
         }
     }
-    //ÃÑ¸ÂÀ»¶§
+    //ï¿½Ñ¸ï¿½ï¿½ï¿½ï¿½ï¿½
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Arrow")
@@ -39,13 +39,14 @@ public class Target : MonoBehaviour
         }
     }
 
-    //¸Â¾ÒÀ» ¶§ ³»·Á°¡´Â°Å
+    //ï¿½Â¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½
     public void SetIsHit()
     {
         Debug.Log(transform + "Hit");
         isUpped = false;
         anim.SetBool("isHit", !isUpped);
         timer = 0f;
+        TargetController.Instance.ScorePlus();
         TargetController.Instance.isNextTarget = true;
     }
     public void SetUp()
