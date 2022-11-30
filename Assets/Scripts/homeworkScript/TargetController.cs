@@ -47,20 +47,6 @@ public class TargetController : MonoBehaviour
                 isHit = false;
             }
         }
-        // if (gameStart)
-        // {
-           
-        //     setUp();
-        //     timer += Time.deltaTime;
-        //     if (timer >= 4f)
-        //     {
-        //         timer = 0;
-        //         isHit = true;
-        //         anim.SetBool("isHit", isHit);
-        //         myturn = false;
-        //     }
-        // }
-
     }
     //총맞을때
     private void OnCollisionEnter(Collision other)
