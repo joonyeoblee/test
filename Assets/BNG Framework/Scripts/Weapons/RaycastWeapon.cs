@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using System;
 
 namespace BNG {
 
@@ -239,8 +238,6 @@ namespace BNG {
         [Tooltip("Passes along Raycast Hit info whenever a Raycast hit is successfully detected. Use this to display fx, add force, etc.")]
         public RaycastHitEvent onRaycastHitEvent;
 
-        public static event EventHandler OnPistolFired;
-
         /// <summary>
         /// Is the slide / receiver forced back due to last shot
         /// </summary>
@@ -429,7 +426,6 @@ namespace BNG {
             if(onShootEvent != null) {
                 onShootEvent.Invoke();
             }
-            OnPistolFired.Invoke(this, EventArgs.Empty);
 
             // Store our last shot time to be used for rate of fire
             lastShotTime = Time.time;
