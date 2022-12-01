@@ -593,8 +593,8 @@ namespace BNG {
 
         // Randomly scale / rotate to make them seem different
         void randomizeMuzzleFlashScaleRotation() {
-            MuzzleFlashObject.transform.localScale = Vector3.one * Random.Range(0.75f, 1.5f);
-            MuzzleFlashObject.transform.localEulerAngles = new Vector3(0, 0, Random.Range(0, 90f));
+            MuzzleFlashObject.transform.localScale = Vector3.one * UnityEngine.Random.Range(0.75f, 1.5f);
+            MuzzleFlashObject.transform.localEulerAngles = new Vector3(0, 0, UnityEngine.Random.Range(0, 90f));
         }       
 
         public virtual void OnWeaponCharged(bool allowCasingEject) {

@@ -68,6 +68,10 @@ public class TargetController : MonoBehaviour
             t.downTime = downTime;
         }
         PutDownAllTarget();
+
+        hitText.text = ""; 
+        missText.text = "";
+        bulletText.text = "";
     }
 
     private void TryUpTarget()
@@ -100,7 +104,7 @@ public class TargetController : MonoBehaviour
         //결과 띄우기
         hitText.text = "Hit score\n" + score.ToString(); 
         missText.text = "Miss score\n" + (10 - score).ToString(); 
-        hitText.text = "Using bullet\n" + useBullet; 
+        bulletText.text = "Using bullet\n" + useBullet; 
     }
 
     public void PutDownAllTarget()
@@ -121,10 +125,10 @@ public class TargetController : MonoBehaviour
     {
        score++;
     }
-
     public void RaycastWeapon_OnPistolFired(object sender, EventArgs e)
     {
-        useBullet++;
+        if(buttonController.isGameStart)
+            useBullet++;
     }
 
 }
