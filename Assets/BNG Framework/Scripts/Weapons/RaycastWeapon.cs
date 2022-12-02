@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 namespace BNG {
 
@@ -241,6 +242,8 @@ namespace BNG {
         /// <summary>
         /// Is the slide / receiver forced back due to last shot
         /// </summary>
+        public static event EventHandler OnPistolFired;
+
         protected bool slideForcedBack = false;
 
         protected WeaponSlide ws;
@@ -426,7 +429,8 @@ namespace BNG {
             if(onShootEvent != null) {
                 onShootEvent.Invoke();
             }
-
+            OnPistolFired.Invoke(this, EventArgs.Empty);
+            
             // Store our last shot time to be used for rate of fire
             lastShotTime = Time.time;
 
