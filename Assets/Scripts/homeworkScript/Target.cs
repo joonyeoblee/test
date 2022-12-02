@@ -8,7 +8,7 @@ public class Target : MonoBehaviour
     public float downTime;
 
     public bool isUpped;
-
+    public bool gameStart= false;
     private Animator anim;
 
     void Start()
@@ -20,7 +20,7 @@ public class Target : MonoBehaviour
     void Update()
     {
         //�ö�������� Ư�� �� �ڿ� ������
-        if (isUpped)
+        if (gameStart&&isUpped)
         {
             timer += Time.deltaTime;
             if (timer >= downTime)

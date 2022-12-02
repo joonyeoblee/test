@@ -112,6 +112,7 @@ public class TargetController : MonoBehaviour
         foreach(Target t in targets)
         {
             t.SetDown();
+            t.gameStart = true;
         }
     }
     public void PutUpAllTarget()
@@ -119,6 +120,7 @@ public class TargetController : MonoBehaviour
         foreach(Target t in targets)
         {
             t.SetUp();
+            t.gameStart = false;
         }
     }
      public void ScorePlus()
